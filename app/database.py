@@ -10,18 +10,14 @@ ssl_context.check_hostname = False
 ssl_context.verify_mode = ssl.CERT_REQUIRED
 
 engine = create_async_engine(
-    DATABASE_URL,
-    echo=True,
-    future=True,
-    connect_args={"ssl": ssl_context}
+    DATABASE_URL, echo=True, future=True, connect_args={"ssl": ssl_context}
 )
 
 AsyncSessionLocal = sessionmaker(
-    bind=engine,
-    class_=AsyncSession,
-    expire_on_commit=False
+    bind=engine, class_=AsyncSession, expire_on_commit=False
 )
+
 
 async def get_db():
     async with AsyncSessionLocal() as session:
-        yield session
+        yield {"db": session}
