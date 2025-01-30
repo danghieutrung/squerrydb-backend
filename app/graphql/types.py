@@ -1,6 +1,5 @@
 import strawberry
 from typing import Optional, List
-from app.models import Series, Episode
 
 @strawberry.type
 class SeriesType:
