@@ -1,0 +1,8 @@
+fastapi
+strawberry-graphql
+uvicorn
+sqlalchemy
+asyncpg
+psycopg2-binary
+fastapi[all]  # (Includes CORS and other useful features)
+
