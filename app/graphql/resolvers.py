@@ -53,16 +53,19 @@ async def get_ratings(info: Info, tconst: str) -> Optional[SeriesType]:
         episodes=episodes
     )
 
-async def search_series(info: Info, name: str) -> List[SeriesType]:
+async def search_series(info: Info, name: str, isLimit: Optional[bool] = None) -> List[SeriesType]:
     session: AsyncSession = info.context["db"]
 
-    result = await session.execute(
+    query = (
         select(Series)
         .where(Series.primarytitle.ilike(f"%{name}%"))
         .order_by(Series.numvotes.desc().nullslast())
-        # .limit(20)
     )
 
+    if isLimit:
+        query = query.limit(5)
+
+    result = await session.execute(query)
     series_list = result.scalars().all()
 
     return [
