@@ -1,5 +1,5 @@
 ## Backend Application for [SquerryDB](https://squerrydb-frontend-production.up.railway.app/)
-
+Visualizing App for IMDb Series. Data downloaded from [IMDb Non-Commercial Datasets](https://developer.imdb.com/non-commercial-datasets/).
 - Database: PostgreSQL
 - [GraphQL API](https://squerrydb-backend-production.up.railway.app/graphql): Strawberry
 - Backend: FastAPI
