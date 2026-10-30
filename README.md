@@ -7,3 +7,13 @@ Visualizing App for IMDb Series. Data downloaded from [IMDb Non-Commercial Datas
 
 
 
+
+### Running locally
+Set the database connection via environment variables:
+- `DATABASE_URL` — e.g. `postgresql://user:password@localhost:5432/squerrydb`
+- `DATABASE_SSL` — `true` (default) or `false` for a local database without SSL
+
+```
+pip install -r requirements.txt
+DATABASE_URL=... DATABASE_SSL=false uvicorn main:app --reload
+```
