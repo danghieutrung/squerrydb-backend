@@ -1,7 +1,7 @@
 fastapi
 strawberry-graphql
 uvicorn
-sqlalchemy
+sqlalchemy[asyncio]
 asyncpg
 psycopg2-binary
 fastapi[all]  # (Includes CORS and other useful features)
